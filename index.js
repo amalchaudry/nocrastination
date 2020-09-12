@@ -1,4 +1,6 @@
-function calculate(name) {
-    document.write(name)
+function calculate(name, date, time) {
+
+    
+
 
 }
