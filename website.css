@@ -21,3 +21,34 @@ span.event-multiday-start { margin-right: -4px;  }
 span.event-multiday-finish { margin-left: -4px;  }
 
 span.event-ghost { background-color:transparent; }
+###############
+body {background-color: #292929}
+
+.topnav {
+  background-color: #292929;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 37px;
+  text-decoration: none;
+  font-size: 13.5px;
+  letter-spacing: 2px;
+  font-family: 'Ubuntu';
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
