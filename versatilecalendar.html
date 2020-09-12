@@ -87,8 +87,14 @@
 	
 	<script>
 		function addAnEvent() {
-			var eventDay = prompt("What day you have to do something?");
-			document.getElementById("squareNumber" + eventDay).innerHTML += "<span class='event'></span>";
+			var eventName = prompt("What is the name of the assignment?");
+			var eventDay = prompt("What day is it due?");
+			var eventTime = prompt("How long will it take?");
+			var d = new Date();
+			var today = d.getDate();
+			for (let i = today; eventDay - i >= 0; i++) {
+				document.getElementById("squareNumber" + i).innerHTML += "<span class='event'></span>";
+			}
 		}
 	</script>
 
