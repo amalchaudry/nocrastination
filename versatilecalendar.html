@@ -18,7 +18,7 @@
 		span.number { margin-left: 10% }
 
 		span.event { height: 8px; background-color: rgba(0,0,0,.3); display: block; margin: 5px 10%; border-radius: 2px; background-color: #91c33b; }
-		
+				
 	</style>
     </head>
 
@@ -88,12 +88,12 @@
 	<button onclick="addAnEvent()">ADD AN ASSIGNMENT</button>
 	
 	<script>
-		var colorList = ["green","blue","orange","red","yellow","purple"];
+		var colorList = ["#91c33b","#da5f5f","#5a9ab2","red","yellow","purple"];
 		var colorCounter = 0;
 		function addAnEvent() {
 			var eventName = prompt("What is the name of the assignment?");
 			var eventDay = prompt("What day is it due?");
-			var eventTime = prompt("How long will it take?");
+			var eventTime = prompt("How many hours will it take?");
 			var d = new Date();
 			var today = d.getDate();
 			var studyTime = Math.round((eventTime * 60) / (eventDay - today + 1));
@@ -109,4 +109,6 @@
 
 </body>
 </html>
+
+
 
