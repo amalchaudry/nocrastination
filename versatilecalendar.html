@@ -17,7 +17,7 @@
 
 		span.number { margin-left: 10% }
 
-		span.event { height: 6px; background-color: rgba(0,0,0,.3); display: block; margin: 5px 10%; border-radius: 2px; background-color: #91c33b; }
+		span.event { height: 8px; background-color: rgba(0,0,0,.3); display: block; margin: 5px 10%; border-radius: 2px; background-color: #91c33b; }
 		
 	</style>
     </head>
@@ -96,11 +96,11 @@
 			var eventTime = prompt("How long will it take?");
 			var d = new Date();
 			var today = d.getDate();
-			var studyTime = round((eventTime * 60) / (eventDay - today));
-			var stringStudyTime = studyTime.toString();
-			var innerText = "Study " + eventName + " for " + stringStudyTime + "minutes.";
+			var studyTime = Math.round((eventTime * 60) / (eventDay - today + 1));
+			var stringStudyTime = studyTime.toString(); 
+			var innerText = "Study " + eventName + " for " + stringStudyTime + " minutes.";
 			for (let i = today; eventDay - i >= 0; i++) {
-				document.getElementById("squareNumber" + i).innerHTML += "<span title=" + innerText + "><span class='event' style='background-color:" + colorList[colorCounter] + "'></span></span>";
+				document.getElementById("squareNumber" + i).innerHTML += "<span title='" + innerText + "'><span class='event' style='background-color:" + colorList[colorCounter] + "'></span></span>";
 			}
 			colorCounter++;
 		}
@@ -109,10 +109,4 @@
 
 </body>
 </html>
-
-
-
-
-
-
 
