@@ -50,7 +50,7 @@
 
 		  // <td> with actual dates
 			while (d.getMonth() == mon) {
-				table += '<td class="day"><span class="number">' + d.getDate() + '</span></td>';
+				table += '<td class="day" id="squareNumber' + d.getDate() + '"><span class="number">' + d.getDate() + '</span></td>';
 
 				if (getDay(d) % 7 == 6) { // sunday, last day of week - newline
 				table += '</tr><tr>';
@@ -82,6 +82,16 @@
 		var current_year = prompt("What year is it?");
 		createCalendar(calendar, current_year, current_month);
 	</script>
+	
+	<button onclick="addAnEvent()">Add an event</button>
+	
+	<script>
+		function addAnEvent() {
+			var eventDay = prompt("What day you have to do something?");
+			document.getElementById("squareNumber" + eventDay).innerHTML += "<span class='event'></span>";
+		}
+	</script>
+
 
 </body>
 </html>
