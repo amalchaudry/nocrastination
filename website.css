@@ -1,13 +1,12 @@
-body { margin: 100; }
+body { margin: 0; background-color: #ecdcc9; }
 
-table { width: 50%; box-sizing: border-box; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.1); font-family: 'Ubuntu'; /*border-collapse: collapse;*/ border-spacing: 0; background-color: #333333; }
+table { width: 100%; box-sizing: border-box; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.1); font-family: 'Ubuntu'; /*border-collapse: collapse;*/ border-spacing: 0; background-color: #333333; }
 
 div.tbl{
-    position: relative;
-    left: 900px;
-    bottom: 100px;
-    top: 100px;
+    width: 100%; 
+    overflow: hidden;
 }
+
 th, td { border: 1px solid rgba(255,255,255,0.1); box-sizing: border-box; }
 
 th { text-transform: uppercase; font-size:10px; font-weight:700; padding: 10px 0; color: rgba(255,255,255,0.5); background-color: #292929; letter-spacing: 1px; }
@@ -29,11 +28,12 @@ span.event-multiday-finish { margin-left: -4px;  }
 span.event-ghost { background-color:transparent; }
 
 /* Style the links inside the navigation bar */
-body {background-color: #292929}
+
 
 .topnav {
-  background-color: #292929;
+  background-color: #40243d;
   overflow: hidden;
+
 }
 .topnav a {
   float: left;
@@ -57,3 +57,98 @@ body {background-color: #292929}
   background-color: #4CAF50;
   color: white;
 }
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	width: 100%;
+	height: 20px;
+	background-color: rgba(255,255,255,0.1);
+	margin-bottom: 30px;
+	padding: 0;
+}
+
+h1 {
+	font-family: 'Ubuntu';
+	color: white;
+    text-align: center;
+    
+}
+
+h2{
+    font-family: 'Ubuntu';
+	color: white;
+    text-align: center;
+    padding-top: 20px;
+
+}
+
+.logo {
+	text-align: left;
+	padding-left: 20px;
+	line-height: 50px;
+    font-size: 20px;
+}
+
+label {
+	font-family: 'Ubuntu';
+	color: white;
+}
+
+input {
+	margin-top: 15px;
+}
+
+input[type=submit] {
+	background-color: white;
+	color: black;
+	border: none;
+	padding: 10px 10px;
+	font-family: 'Ubuntu';
+}
+
+.submitButton {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    
+    
+}
+
+form p {
+	color: rgba(255,255,255,0.6);
+	font-family: 'Ubuntu';
+}
+
+.assignments {
+	display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    display:flex;
+    flex-direction: ;
+   
+}
+
+.element {
+    padding-right: 20px;
+    
+}
+
+.name {
+	width: 150px;
+}
+
+.dueDate {
+	width: 100px;
+}
+
+.time {
+	width: 400px;
+}
+
+
+
