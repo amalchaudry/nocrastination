@@ -17,12 +17,8 @@
 
 		span.number { margin-left: 10% }
 
-		span.event { height: 4px; background-color: rgba(0,0,0,.3); display: block; margin: 5px 10%; border-radius: 2px; background-color: #91c33b; }
-
-		span.event-multiday { margin: 5px -2px; border-radius: 0; }
-		span.event-multiday-start { margin-right: -4px;  }
-		span.event-multiday-finish { margin-left: -4px;  }
-		span.event-ghost { background-color:transparent; }
+		span.event { height: 6px; background-color: rgba(0,0,0,.3); display: block; margin: 5px 10%; border-radius: 2px; background-color: #91c33b; }
+		
 	</style>
     </head>
 
@@ -81,23 +77,42 @@
 		var current_month = prompt("What month is it?");
 		var current_year = prompt("What year is it?");
 		createCalendar(calendar, current_year, current_month);
+		
+		//change the class for the current day 
+		var d = new Date();
+		var today = d.getDate();
+		document.getElementById("squareNumber" + today).className = "today";
+		
 	</script>
 	
-	<button onclick="addAnEvent()">Add an event</button>
+	<button onclick="addAnEvent()">ADD AN ASSIGNMENT</button>
 	
 	<script>
+		var colorList = ["green","blue","orange","red","yellow","purple"];
+		var colorCounter = 0;
 		function addAnEvent() {
 			var eventName = prompt("What is the name of the assignment?");
 			var eventDay = prompt("What day is it due?");
 			var eventTime = prompt("How long will it take?");
 			var d = new Date();
 			var today = d.getDate();
+			var studyTime = round((eventTime * 60) / (eventDay - today));
+			var stringStudyTime = studyTime.toString();
+			var innerText = "Study " + eventName + " for " + stringStudyTime + "minutes.";
 			for (let i = today; eventDay - i >= 0; i++) {
-				document.getElementById("squareNumber" + i).innerHTML += "<span class='event'></span>";
+				document.getElementById("squareNumber" + i).innerHTML += "<span title=" + innerText + "><span class='event' style='background-color:" + colorList[colorCounter] + "'></span></span>";
 			}
+			colorCounter++;
 		}
 	</script>
 
 
 </body>
 </html>
+
+
+
+
+
+
+
