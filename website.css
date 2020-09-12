@@ -1,154 +1,106 @@
-body { margin: 0; background-color: #ecdcc9; }
-
-table { width: 100%; box-sizing: border-box; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.1); font-family: 'Ubuntu'; /*border-collapse: collapse;*/ border-spacing: 0; background-color: #333333; }
-
-div.tbl{
-    width: 100%; 
-    overflow: hidden;
-}
-
-th, td { border: 1px solid rgba(255,255,255,0.1); box-sizing: border-box; }
-
-th { text-transform: uppercase; font-size:10px; font-weight:700; padding: 10px 0; color: rgba(255,255,255,0.5); background-color: #292929; letter-spacing: 1px; }
-
-td { width: 14.285%; transition: all 0.3s; font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 400; font-size: 14px; padding: 50% 1.5% 5%; vertical-align: initial; padding: 1.5% 0 ; height: 100px; }
-
-.day:hover { background-color: rgba(0,0,0,0.1); cursor:pointer; }
-
-.today { color: #FFF; background-color: rgba(0,0,0,.25) !important; }
-
-span.number { margin-left: 10% }
-
-span.event { height: 4px; background-color: rgba(0,0,0,.3); display: block; margin: 5px 10%; border-radius: 2px; background-color: #91c33b; }
-
-span.event-multiday { margin: 5px -2px; border-radius: 0; }
-span.event-multiday-start { margin-right: -4px;  }
-span.event-multiday-finish { margin-left: -4px;  }
-
-span.event-ghost { background-color:transparent; }
-
-/* Style the links inside the navigation bar */
-
-
-.topnav {
-  background-color: #40243d;
-  overflow: hidden;
-
-}
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 20px 37px;
-  text-decoration: none;
-  font-size: 13.5px;
-  letter-spacing: 2px;
-  font-family: 'Ubuntu';
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
-header {
-	width: 100%;
-	height: 20px;
-	background-color: rgba(255,255,255,0.1);
-	margin-bottom: 30px;
-	padding: 0;
-}
-
+body { margin: 0; background-color: #f7f7f7; }
 h1 {
 	font-family: 'Ubuntu';
-	color: white;
-    text-align: center;
-    
+	color: black;
+    text-align: top;
+    font-style: italic;   
 }
-
-h2{
-    font-family: 'Ubuntu';
-	color: white;
-    text-align: center;
-    padding-top: 20px;
-
-}
-
 .logo {
 	text-align: left;
-	padding-left: 20px;
+    padding-left: 20px;
+    padding-bottom: 0px;
 	line-height: 50px;
-    font-size: 20px;
+    font-size: 15px;
+    position: absolute;
+    top: 0px;
 }
 
-label {
-	font-family: 'Ubuntu';
-	color: white;
+.button {
+  background-color: #ffe0f7; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Ubuntu';
+  font-weight: 15px;
+  
 }
 
-input {
-	margin-top: 15px;
+table {
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.11);
+            font-family: 'Ubuntu';
+            border-collapse: collapse;
+            border-spacing: 0;
+            background-color: #f7f7f7;
+            overflow: hidden;
+        }
+
+
 }
 
-input[type=submit] {
-	background-color: white;
-	color: black;
-	border: none;
-	padding: 10px 10px;
-	font-family: 'Ubuntu';
+        th,
+        td {
+            border: 1px solid rgba(240, 84, 12, 0.836);
+            box-sizing: border-box;
+            
+           
+        }
+
+
+        th {
+            text-transform: uppercase;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 10px 0;
+            color: black;
+            background-color: #ffe0f7;
+            letter-spacing: 1px;
+        }
+
+        td {
+            width: 14.285%;
+            transition: all 0.3s;
+            font-size: 14px;
+            color: black;
+            font-weight: 400;
+            font-size: 14px;
+            padding: 50% 1.5% 5%;
+            vertical-align: initial;
+            padding: 1.5% 0;
+            height: 100px;
+            
+        }
+
+        .day:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .today {
+            color: #FFF;
+            background-color: rgba(0, 0, 0, .25) !important;
+            
+        }
+
+        span.number {
+            margin-left: 10%
+        }
+
+        span.event {
+            height: 15px;
+            background-color: rgba(0, 0, 0, .3);
+            display: block;
+            margin: 5px 10%;
+            border-radius: 2px;
+            background-color: #91c33b;
+        }
+
+* {
+	margin-top: 0px;
+	padding: 0px;
 }
-
-.submitButton {
-	display: flex;
-	justify-content: center;
-    align-items: center;
-    padding-bottom: 20px;
-    
-    
-}
-
-form p {
-	color: rgba(255,255,255,0.6);
-	font-family: 'Ubuntu';
-}
-
-.assignments {
-	display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    display:flex;
-    flex-direction: ;
-   
-}
-
-.element {
-    padding-right: 20px;
-    
-}
-
-.name {
-	width: 150px;
-}
-
-.dueDate {
-	width: 100px;
-}
-
-.time {
-	width: 400px;
-}
-
-
-
