@@ -1,47 +1,112 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+    <head>
+        <title>Calendar</title>
+	<style>
+		table { width: 50%; box-sizing: border-box; box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.1); font-family: 'Ubuntu'; /*border-collapse: collapse;*/ border-spacing: 0; background-color: #333333; }
 
-<head>
-    <title>Calendar</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
-</head>
+		th, td { border: 1px solid rgba(255,255,255,0.1); box-sizing: border-box; }
+
+		th { text-transform: uppercase; font-size:10px; font-weight:700; padding: 10px 0; color: rgba(255,255,255,0.5); background-color: #292929; letter-spacing: 1px; }
+
+		td { width: 14.285%; transition: all 0.3s; font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 400; font-size: 14px; padding: 50% 1.5% 5%; vertical-align: initial; padding: 1.5% 0 ; height: 100px; }
+		
+		.day:hover { background-color: rgba(0,0,0,0.1); cursor:pointer; }
+
+		.today { color: #FFF; background-color: rgba(0,0,0,.25) !important; }
+
+		span.number { margin-left: 10% }
+
+		span.event { height: 6px; background-color: rgba(0,0,0,.3); display: block; margin: 5px 10%; border-radius: 2px; background-color: #91c33b; }
+		
+	</style>
+    </head>
 
 <body>
-	<header>
-		<h1 class="logo">NOCRASTINATE</h1>
-	</header>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+	<div id="calendar"></div>
+  
+	<script>
+		function createCalendar(elem, year, month) {
+
+			let mon = month - 1; // months in JS are 0..11, not 1..12
+			let d = new Date(year, mon);
+		  
+		  	monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+			let table = '<table><tr><th colspan="7"><span id="month">' + monthNames[mon] +'</span></th></tr>'
+			table += '<table><tr><th class="day-name">SUN</th><th class="day-name">MON</th><th class="day-name">TUE</th><th class="day-name">WED</th><th class="day-name">THU</th><th class="day-name">FRI</th><th class="day-name">SAT</th></tr><tr>';
+
+		  // spaces for the first row
+		  // from Monday till the first day of the month
+		  // * * * 1  2  3  4
+			for (let i = 0; i < getDay(d); i++) {
+				table += '<td class="day"><span class="number"></span></td>';
+		  }
+
+		  // <td> with actual dates
+			while (d.getMonth() == mon) {
+				table += '<td class="day" id="squareNumber' + d.getDate() + '"><span class="number">' + d.getDate() + '</span></td>';
+
+				if (getDay(d) % 7 == 6) { // sunday, last day of week - newline
+				table += '</tr><tr>';
+				}
+
+				d.setDate(d.getDate() + 1);
+			}
+
+		  // add spaces after last days of month for the last row
+		  // 29 30 31 * * * *
+			if (getDay(d) != 0) {
+				for (let i = getDay(d); i < 7; i++) {
+				table += '<td class="day"><span class="number"></span></td>';
+				}
+			}
+		
+		  // close the table
+			table += '</tr></table>';
+
+			document.getElementById("calendar").innerHTML = table;
+		}
+
+		function getDay(date) { // get day number from 0 (monday) to 6 (sunday)
+			let day = date.getDay();
+			return day;
+		}
+		
+		var current_month = prompt("What month is it?");
+		var current_year = prompt("What year is it?");
+		createCalendar(calendar, current_year, current_month);
+		
+		//change the class for the current day 
+		var d = new Date();
+		var today = d.getDate();
+		document.getElementById("squareNumber" + today).className = "today";
+		
+	</script>
 	
-	<div> 
-		<h1>What assignments do you have?</h1><br>
-			<div class="assignments">
-				<div class="element">
-					<label for="name">ASSIGNMENT NAME:</label><br>
-					<input type="text" id="name" class="name"><br>
-				</div>
-				<div class="element">
-					<label for="dueDate">DUE DATE:</label><br>
-					<input type="date" id="dueDate" class="dueDate"><br>
-				</div>
-				<div class="element">
-					<label for="time">ESTIMATED TIME TO COMPLETE:</label><br>
-					<input type="text" id="time" class="time"><br>
-				</div>
-			</div>
-			<br>
-			<button onclick="calculate(getName)"> CALCULATE </button> <br>
+	<button onclick="addAnEvent()">ADD AN ASSIGNMENT</button>
+	
+	<script>
+		var colorList = ["green","blue","orange","red","yellow","purple"];
+		var colorCounter = 0;
+		function addAnEvent() {
+			var eventName = prompt("What is the name of the assignment?");
+			var eventDay = prompt("What day is it due?");
+			var eventTime = prompt("How long will it take?");
+			var d = new Date();
+			var today = d.getDate();
+			var studyTime = round((eventTime * 60) / (eventDay - today));
+			var stringStudyTime = studyTime.toString();
+			var innerText = "Study " + eventName + " for " + stringStudyTime + "minutes.";
+			for (let i = today; eventDay - i >= 0; i++) {
+				document.getElementById("squareNumber" + i).innerHTML += "<span title=" + innerText + "><span class='event' style='background-color:" + colorList[colorCounter] + "'></span></span>";
+			}
+			colorCounter++;
+		}
+	</script>
 
 
-		<footer>
-
-			<script
-					var getName = document.getElementByID("name").value;
-					src="index.js">
-
-			</script>
-		</footer>
-
-
- </body>
-
+</body>
 </html>
+
